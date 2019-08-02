@@ -1,5 +1,5 @@
 # mixerdl
-
+note: this currenlty just downloads the raw mp4 file, speed improvements could be made my parallel downloading the m3u8 playlist.
 ## Download
 
 Go to the releases folder and look for the current build. Download concat.exe if you are on Windows and concat if want to use it on MacOS/Ubuntu.
