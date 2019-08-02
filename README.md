@@ -4,7 +4,7 @@ note: this currenlty just downloads the raw mp4 file, speed improvements could b
 
 Go to the releases folder and look for the current build. Download concat.exe if you are on Windows and concat if want to use it on MacOS/Ubuntu.
 
-## Prerequisite
+## Requirements
 
 No dependencies as long as you use the built binary. If you want to compile from source, you must run `go build mixerdl.go` or `go run mixerdl.go`
 
