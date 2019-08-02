@@ -2,7 +2,7 @@
 note: this currently just downloads the raw mp4 file, speed improvements could be made by parallel downloading the m3u8 playlist and then concatenating with ffmpeg.
 ## Download
 
-Go to the releases folder and look for the current build. Download concat.exe if you are on Windows and concat if want to use it on MacOS/Ubuntu.
+Go to the releases folder and look for the current build. Download `mixerdl.exe` if you are on Windows and `mixerdl` if want to use it on MacOS/Ubuntu.
 
 ## Requirements
 
