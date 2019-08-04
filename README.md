@@ -17,3 +17,5 @@ Calling options:
 - -url `-url="https://mixer.com/Kabby?vod=WVKDcVRHNEOFt3o7H0-l5g"` enter the url you want to download the vod from (e.g., https://mixer.com/Kabby?vod=WVKDcVRHNEOFt3o7H0-l5g)
 
 You may have to mark `mixerdl` as an executable on your machine. If on MacOS or Linux, run `chmod +x mixerdl`.
+
+Example Usage: `./mixerdl -url="https://mixer.com/Kabby?vod=WVKDcVRHNEOFt3o7H0-l5g"`
