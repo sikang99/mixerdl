@@ -26,7 +26,7 @@ clean:
 git g:
 	@echo "> make (git:g) [update|store]"
 git-update gu:
-	git add .gitignore *.md Makefile *.go
+	git add .
 	git commit -a -m "clean code"
 	git push
 git-store gs:
