@@ -55,12 +55,9 @@ func main() {
 
 func PrintDownloadPercent(done chan int64, path string, total int64) {
 
-	//var stop bool = false
-
 	for {
 		select {
 		case <-done:
-			//stop = true
 			return
 		default:
 
@@ -83,13 +80,8 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 			var percent float64 = float64(size) / float64(total) * 100
 
 			fmt.Printf("%.0f%%\n", percent)
-			//fmt.Println("%")
 		}
-		/*
-			if stop {
-				break
-			}
-		*/
+
 		time.Sleep(time.Second)
 	}
 }
@@ -97,7 +89,6 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 func DownloadFile(url string, dest string) {
 
 	file := path.Base(url)
-
 	log.Printf("Downloading file %s from %s\n", file, url)
 
 	var path bytes.Buffer
@@ -108,24 +99,19 @@ func DownloadFile(url string, dest string) {
 	start := time.Now()
 
 	out, err := os.Create(path.String())
-
 	if err != nil {
 		fmt.Println(path.String())
 		panic(err)
 	}
-
 	defer out.Close()
 
 	headResp, err := http.Head(url)
-
 	if err != nil {
 		panic(err)
 	}
-
 	defer headResp.Body.Close()
 
 	size, err := strconv.Atoi(headResp.Header.Get("Content-Length"))
-
 	if err != nil {
 		panic(err)
 	}
@@ -135,15 +121,12 @@ func DownloadFile(url string, dest string) {
 	go PrintDownloadPercent(done, path.String(), int64(size))
 
 	resp, err := http.Get(url)
-
 	if err != nil {
 		panic(err)
 	}
-
 	defer resp.Body.Close()
 
 	n, err := io.Copy(out, resp.Body)
-
 	if err != nil {
 		panic(err)
 	}

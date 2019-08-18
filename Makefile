@@ -26,8 +26,8 @@ clean:
 git g:
 	@echo "> make (git:g) [update|store]"
 git-update gu:
-	git add .gitignore *.md Makefile
-	git commit -a -m "forked and start to modify"
+	git add .gitignore *.md Makefile *.go
+	git commit -a -m "clean code"
 	git push
 git-store gs:
 	git config credential.helper store
