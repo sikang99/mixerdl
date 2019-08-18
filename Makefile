@@ -1,7 +1,7 @@
 #
 # Makefile for mixderdl
 #
-.PHONY: usage edit build play clean git
+.PHONY: usage edit build run play clean git
 
 PROG=mixerdl
 usage:
