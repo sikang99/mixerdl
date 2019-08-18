@@ -1,0 +1,35 @@
+#
+# Makefile for mixderdl
+#
+.PHONY: usage edit build play clean git
+
+PROG=mixerdl
+usage:
+	@echo "usage: make [edit|build|run|play|clean]"
+
+edit e:
+	vi mixerdl.go
+
+build b:
+	go build -o $(PROG) *.go
+	mv $(PROG) $(GOPATH)/bin
+
+run r:
+	$(PROG) -url="https://mixer.com/Kabby?vod=WVKDcVRHNEOFt3o7H0-l5g"
+
+play p:
+	ffplay *.mp4
+
+clean:
+	rm -f $(PROG) *.mp4
+#----------------------------------------------------------------------------------
+git g:
+	@echo "> make (git:g) [update|store]"
+git-update gu:
+	git add .gitignore *.md Makefile
+	git commit -a -m "forked and start to modify"
+	git push
+git-store gs:
+	git config credential.helper store
+#----------------------------------------------------------------------------------
+

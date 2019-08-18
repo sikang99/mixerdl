@@ -46,8 +46,8 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	data, _ := ioutil.ReadAll(resp.Body)
-	mp4_url := strings.Split(gjson.Get(string(data), "contentLocators.1.uri").String(), "?")[0]
+	data, _ := ioutil.ReadAll(resp.Body)                                                        // data in json
+	mp4_url := strings.Split(gjson.Get(string(data), "contentLocators.1.uri").String(), "?")[0] // drop the string after ? in url
 
 	DownloadFile(mp4_url, "./")
 	os.Rename("source.mp4", vod+".mp4")
@@ -55,12 +55,13 @@ func main() {
 
 func PrintDownloadPercent(done chan int64, path string, total int64) {
 
-	var stop bool = false
+	//var stop bool = false
 
 	for {
 		select {
 		case <-done:
-			stop = true
+			//stop = true
+			return
 		default:
 
 			file, err := os.Open(path)
@@ -81,14 +82,14 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 
 			var percent float64 = float64(size) / float64(total) * 100
 
-			fmt.Printf("%.0f", percent)
-			fmt.Println("%")
+			fmt.Printf("%.0f%%\n", percent)
+			//fmt.Println("%")
 		}
-
-		if stop {
-			break
-		}
-
+		/*
+			if stop {
+				break
+			}
+		*/
 		time.Sleep(time.Second)
 	}
 }
