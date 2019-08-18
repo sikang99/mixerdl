@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tidwall/gjson"
+	"github.com/tidwall/gjson" // get json element quickly
 )
 
 func main() {
