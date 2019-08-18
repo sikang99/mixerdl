@@ -60,7 +60,6 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 		case <-done:
 			return
 		default:
-
 			file, err := os.Open(path)
 			if err != nil {
 				log.Fatal(err)
@@ -72,13 +71,11 @@ func PrintDownloadPercent(done chan int64, path string, total int64) {
 			}
 
 			size := fi.Size()
-
 			if size == 0 {
 				size = 1
 			}
 
 			var percent float64 = float64(size) / float64(total) * 100
-
 			fmt.Printf("%.0f%%\n", percent)
 		}
 
