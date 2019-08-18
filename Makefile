@@ -12,7 +12,8 @@ edit e:
 
 build b:
 	go build -o $(PROG) *.go
-	mv $(PROG) $(GOPATH)/bin
+	@mv $(PROG) $(GOPATH)/bin
+	@ls -al $(GOPATH)/bin/$(PROG)
 
 run r:
 	$(PROG) -url="https://mixer.com/Kabby?vod=WVKDcVRHNEOFt3o7H0-l5g"
@@ -26,6 +27,7 @@ clean:
 git g:
 	@echo "> make (git:g) [update|store]"
 git-update gu:
+	make clean
 	git add .
 	git commit -a -m "clean code"
 	git push
